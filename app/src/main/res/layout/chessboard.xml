@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gtp.android.chess.views.ChessBoardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ChessBoardLayout"
+    android:focusable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+</gtp.android.chess.views.ChessBoardView>

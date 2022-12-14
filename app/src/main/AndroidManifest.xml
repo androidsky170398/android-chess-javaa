@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gtp.android.chess"
+    android:installLocation="auto"
+    android:versionCode="175"
+    android:versionName="9.2.2">
+
+    <application
+        android:name="android.app.Application"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:theme="@style/ChessTheme"
+        android:banner="@drawable/ic_feature">
+        <service android:name="gtp.android.chess.ics.ICSServer"></service>
+        <service android:name="gtp.android.chess.tools.ImportService"></service>
+        <activity
+            android:name="gtp.android.chess.start"
+            android:label="@string/app_name"
+            android:theme="@style/ChessStart"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="gtp.android.chess.ChessPreferences"
+            android:label="@string/globalpreferences"
+            android:configChanges="orientation">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+
+        <activity
+            android:name="gtp.android.chess.HtmlActivity"
+            android:label="@string/app_name_help"
+            android:configChanges="orientation"></activity>
+        <activity
+            android:name="gtp.android.chess.activities.GlobalPreferencesActivity"
+            android:label="@string/globalpreferences"
+            android:configChanges="orientation">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.activities.BoardPreferencesActivity"
+            android:label="@string/globalpreferences"
+            android:configChanges="orientation">
+        </activity>
+        <activity
+            android:name="gtp.android.chess.activities.GamePreferenceActivity"
+            android:label="@string/playpreferences"
+            android:configChanges="orientation"></activity>
+        <activity
+            android:name="gtp.android.chess.play.PlayActivity"
+            android:label="@string/app_name_play"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-chess-pgn" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-chess-pgn" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-chess-fen" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.setup.SetupActivity"
+            android:label="@string/app_name_setup"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-chess-fen" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.play.PlayActivity" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.GamesListActivity"
+            android:label="@string/app_name_save_games"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.play.PlayActivity" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.puzzle.PuzzleActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.practice.PracticeActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.ics.ICSClient"
+            android:label="@string/app_name_playonline"
+            android:screenOrientation="locked"
+            android:configChanges="orientation"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.ics.ICSPrefs"
+            android:label="@string/preferences"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.ics.ICSClient" />
+        </activity>
+        <!-- <service android:name="jwtc.android.chess.ics.ICSService"/> -->
+        <activity
+            android:name="gtp.android.chess.ics.CustomCommands"
+            android:label="@string/preferences"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.ics.ICSPrefs" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.tools.AdvancedActivity"
+            android:label="@string/app_name_pgntools"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gtp.android.chess.start" />
+        </activity>
+        <activity
+            android:name="gtp.android.chess.tools.ImportActivity"
+            android:label="@string/app_name_import"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-chess-pgn" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="gtp.android.chess.helpers.MyPGNProvider"
+            android:authorities="gtp.android.chess.helpers.MyPGNProvider"
+            android:exported="false" />
+        <provider
+            android:name="gtp.android.chess.puzzle.MyPuzzleProvider"
+            android:authorities="gtp.android.chess.puzzle.MyPuzzleProvider"
+            android:exported="false" />
+    </application>
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="false" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FULLSCREEN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+</manifest>
