@@ -4,7 +4,6 @@
 ## Objectives
 - User friendly
 - Free
-- NO ads
 - Published on the Google Play store https://play.google.com/store/apps/details?id=jwtc.android.chess
 
 
